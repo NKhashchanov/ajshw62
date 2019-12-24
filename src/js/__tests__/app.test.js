@@ -6,7 +6,7 @@ const exepted1 = {
   health: 62.5,
   name: 'aaa',
   type: 'Undead',
-  death: false
+  death: false,
 };
 
 const exepted2 = {
@@ -15,7 +15,7 @@ const exepted2 = {
   health: 0,
   name: 'aaa',
   type: 'Undead',
-  death: true
+  death: true,
 };
 
 describe('Character', () => {

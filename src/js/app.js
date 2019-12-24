@@ -7,7 +7,7 @@ export default function Character(name, type) {
   this.death = false;
 }
 
-Character.prototype.damage = function (points) {
+function checkPoints(points) {
   const damage = points * (1 - this.defence / 100);
 
   if (damage >= this.health) {
@@ -19,4 +19,6 @@ Character.prototype.damage = function (points) {
   if (this.health === 0) {
     this.death = true;
   }
-};
+}
+
+Character.prototype.damage = checkPoints;
