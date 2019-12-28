@@ -22,6 +22,7 @@ describe('Character', () => {
   test('should get damage 50 points', () => {
     const hero = new Character('aaa', 'Undead');
     hero.damage(50);
+    hero.deadOrALive(true);
     expect(hero).toEqual(exepted1);
   });
 
@@ -29,6 +30,7 @@ describe('Character', () => {
     const hero = new Character('aaa', 'Undead');
     hero.damage(200);
     hero.damage(300);
+    hero.deadOrALive(false);
     expect(hero).toEqual(exepted2);
   });
 });

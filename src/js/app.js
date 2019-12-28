@@ -7,18 +7,21 @@ export default function Character(name, type) {
   this.death = false;
 }
 
-function checkPoints(points) {
-  const damage = points * (1 - this.defence / 100);
-
-  if (damage >= this.health) {
+function damage(points) {
+  this.health -= points * (1 - this.defence / 100);
+  if (this.health < 0) {
     this.health = 0;
-  } else {
-    this.health -= damage;
-  }
-
-  if (this.health === 0) {
-    this.death = true;
   }
 }
 
-Character.prototype.damage = checkPoints;
+function deadOrALive() {
+  if (this.health > 0) {
+    this.death = false;
+  } else {
+    this.death = true;
+  }
+  return this.death;
+}
+
+Character.prototype.damage = damage;
+Character.prototype.deadOrALive = deadOrALive;
